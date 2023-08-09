@@ -1,0 +1,6 @@
+2023-08-03 17:04:48 info: "Server started on port 3000 in development mode."
+2023-08-03 17:04:48 info: "MQTT Connected"
+2023-08-03 17:05:18 error: "Error: Could not connect to any servers in your MongoDB Atlas cluster. One common reason is that you're trying to access the database from an IP that isn't whitelisted. Make sure your current IP address is on your Atlas cluster's IP whitelist: https://www.mongodb.com/docs/atlas/security-whitelist/"
+2023-08-03 17:26:06 info: "Server started on port 3000 in development mode."
+2023-08-03 17:26:06 info: "MQTT Connected"
+2023-08-03 17:26:36 error: "Error: Could not connect to any servers in your MongoDB Atlas cluster. One common reason is that you're trying to access the database from an IP that isn't whitelisted. Make sure your current IP address is on your Atlas cluster's IP whitelist: https://www.mongodb.com/docs/atlas/security-whitelist/"
