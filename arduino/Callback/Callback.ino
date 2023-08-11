@@ -54,21 +54,21 @@ String currentPF = "0";
 String relay = "";
 String device_id = "Device0001";
 
-String postback = "device_config/relay1";
+String postback = "device_config";
 
 const char *mqtt_server = "13.212.44.97";
 const char *mqtt_port = "1883";
 const char *mqtt_user = "Device0001";
 const char *mqtt_password = "Device0001";
 const char *mqtt_clientId = "Deivce_Device0001";
-const char *topic_publish = "Device_data";
+const char *topic_publish = "device_data";
 const char *topic_subscribe = "JPLearning_CommandRequest";
 unsigned int subQoS       = 2;     // QoS = 0, 1, or 2
 unsigned int pubQoS       = 2;     // QoS = 0, 1, or 2
 unsigned int pubRetained  = 0;     // retained = 0 or 1
 unsigned int pubDuplicate = 0;     // duplicate = 0 or 1
 
-const long    interval       = 10000;    // time in millisecond
+const long    interval       = 15000;    // time in millisecond
 unsigned long previousMillis = 0;
 int           cnt            = 0;
 
@@ -93,6 +93,7 @@ void setup() {
 
 void loop() {
   nb.MQTTresponse();
+  // nb.publish(postback, payload);
   callback;
   // nb.subscribe(postback,payload);
   unsigned long currentMillis = millis();
@@ -100,7 +101,7 @@ void loop() {
     cnt++;
     // nb.MQTTresponse();
     connectStatus();
-    // nb.subscribe(message, subQoS);
+    // nb.publish(topic_publish, payload);
     sensor_data();
     temp_get();
     Serial.println("");
@@ -118,6 +119,7 @@ void loop() {
 //=========== MQTT Function ================
 void setupMQTT() {
   if (nb.connectMQTT(mqtt_server, mqtt_port, mqtt_clientId, mqtt_user, mqtt_password)) {
+    // nb.publist(topic_publish, subQoS);
     nb.subscribe(postback, subQoS);
   }
 }
